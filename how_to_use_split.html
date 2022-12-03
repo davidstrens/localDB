@@ -1,0 +1,34 @@
+<p>
+  https://www.datablist.com/learn/csv/split-big-csv-file-linux-mac-terminal
+</p>
+<p>
+  https://www.linode.com/docs/guides/divide-files-with-split/#options-and-parameters
+</p>
+<p>split [-l line_count] [-b byte_count] [-n chunk_count] [file [prefix]]</p>
+
+<p>split -l 100000 filename.csv</p>
+
+<p>Splits filename.csv into files containing 100,000 lines </p>
+
+<p>Split has two interesting parameters. The first is -d to use numeric suffixes (1, 2, 3, etc.) instead of letters. The second is the prefix parameter for the generated files. To define the prefix, just add a string after your CSV filename.</p>
+
+<p>
+  split -l 100000 -d filename.csv file_
+</p>
+
+<p>
+  splits file into files containing 100000 lines, numbers them instead of using xaa, xab, etc, and prefixes them with file_ instead of x
+</p>
+
+<p>
+  -a says the number of digits to use to number the files, -d says to use digits instead of letters, -l is number of lines -b is number of bytes (b, kb, mb, gb) -n is the number of files, then the name of the file to divide, then the prefix to use to name the files (for example, example-)
+
+  split -a 1 -n 4 -d example.txt example-
+</p>
+
+<p>
+  davidstrens@Davids-Air examples % split -a 1 -d -n 3 example.txt example-<br />
+davidstrens@Davids-Air examples % ls<br />
+example-0	example-1	example-2	example.txt <br />
+davidstrens@Davids-Air examples % <br />
+</p>

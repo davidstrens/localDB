@@ -51,14 +51,12 @@ let processedData = "hello";
   fs.readFile(path.join(__dirname, "files", "reply.txt"), (err, data) => {
     if (err) throw err;
     fileData = data.toString();
-    processedData += "let's see now";
+    processedData += " let's see now";
     //console.log('hummm... plus ', fileData.slice(200, 220));
     console.log('processedData before: ', processedData);
     processedData.concat(fileData.slice(87966, 88000)); // .concat RETURNS a new string, it doens't modify the original string
     console.log('processedData  after: ', processedData);
-    processedData = processedData.concat(fileData.slice(765990, 766000));
-    processedData = processedData.concat(fileData.slice(34547, 34562));
-    console.log(processedData);
+
   });
 
 });
