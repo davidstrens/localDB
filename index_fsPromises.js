@@ -26,6 +26,9 @@ const fileOps = async () => {  // this is how you define an async function
   //await fsPromises.appendfile() creates the file if the file to append to does not exist
     const nameOfFile = 'promiseComplete.txt'; // this variable used in next line; it shows that I can use node to rename files after I've split them by using the split terminal command. Terminal instructions are cryptic
     await fsPromises.rename(path.join(__dirname, 'files', 'promiseWrite.txt'), path.join(__dirname, 'files', nameOfFile));
+    //await fsPromises.rename(path.join(__dirname, 'example', 'example-08'), path.join(__dirname, 'examples', 'example-08.txt'));
+    //const contentOfFile = await fsPromises.readFile(path.join(__dirname, 'example', 'example-08.txt'));
+    //console.log('example-08.txt content: ', contentOfFile);
     //await fsPromises.unlink(path.join(__dirname, 'promiseComplete.txt'));
     //above line (await fsPromises.unlink() works, you just need to create the file before you try to run this script
     const newData = await fsPromises.readFile(path.join(__dirname, 'files', 'promiseComplete.txt'), 'utf8');
