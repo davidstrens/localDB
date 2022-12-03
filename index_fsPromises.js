@@ -44,6 +44,21 @@ console.log('fileOps about to be called');
 
 fileOps();
 
+//The following function renames all the files for me, I don't have to do it one at a time. This makes a little bit of
+//a difference if there are like 100 of them. If there's just 10, which often there will be, then it only saved me maybe
+//five to ten minutes.
+async function renameTextFiles(nameOfFile) {
+  let oldName;
+  let newName;
+  for (let i = 0; i < 5; i++) {
+    oldName = nameOfFile + String(i) + ".html";
+    newName = nameOfFile + String(i) + ".txt";
+    await fsPromises.rename(path.join(__dirname, 'example', oldName), path.join(__dirname, 'example', newName ))
+  }
+}
+
+renameTextFiles('x');
+
 console.log('fileOps function called');
 
 //app.listen(3000, function() {
