@@ -14,6 +14,11 @@ app.use(express.static(__dirname + '/public')); //Serves resources from public f
 const fsPromises = require('fs').promises; // fs stands for file system
 const path = require('path');
 
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/homepage.html');
+  console.log('file sent'); //this happens in the Mac OS terminal window running the script, not the browser
+})
+
 const fileOps = async () => {  // this is how you define an async function
   try {
     const data = await fsPromises.readFile(path.join(__dirname, 'files', 'starter.txt'), 'utf8');
@@ -57,7 +62,7 @@ async function renameTextFiles(nameOfFile) {
   }
 }
 
-renameTextFiles('x');
+//renameTextFiles('x'); //I just commented this out because I'm using this app right now to try the Shortcuts app
 
 console.log('fileOps function called');
 
