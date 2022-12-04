@@ -1,1 +1,75 @@
-hello world
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  Hello world
+
+  <button onclick="getTheFile()">open file picker</button>
+
+  <script>
+    const name = 'david strens';
+    console.log(name.length);
+    let list = new Array(name);
+    console.log(Array.isArray(list));
+    for (const i of name) {
+      console.log(i);
+    }
+    list = [1, 2, 3];
+    for (const i of list) {
+      console.log(i);
+    }
+    console.log('name includes vid? ' + name.includes('vid'));
+
+    async function getTheFile() {
+      const pickerOpts = {
+        types: [
+          {
+            description: 'Images',
+            accept: {
+              'image/*': ['.png', '.gif', '.jpeg', '.jpg'],
+            },
+          },
+        ],
+        excludeAcceptAllOption: false,
+        multiple: false,
+      };
+
+      // open file picker
+      const [fileHandle] = await window.showOpenFilePicker(/*pickerOpts*/);
+      // get file contents
+      const fileData = await fileHandle.getFile();
+      //return fileData;
+      console.log(fileData);
+      const fileContentAsString = await fileData.text();
+      //return a promise that resolves with a string which contains the blob's data as a text string. The data is always presumed to be in UTF-8 format.
+      console.log('fileContentAsString: ' + fileContentAsString);
+      for (let i = 0; i < fileContentAsString.length; i++) {
+        console.log(fileContentAsString.codePointAt(i));
+      }
+
+    }
+
+/*
+    interesting files:
+
+    https://developer.mozilla.org/en-US/docs/Web/API/FileSystemFileHandle
+
+    https://developer.mozilla.org/en-US/docs/Web/API/File
+
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/codePointAt
+
+*/
+
+</script>
+
+
+</body>
+
+</html>
